@@ -32,7 +32,7 @@ public class PokemonDTO {
     private List<AbilitiesArrDTO> abilities;
 
     @XmlElement(name = "base_experience")
-     @JsonProperty("base_experience")
+    @JsonProperty("base_experience")
     private Integer baseExperience;
 
     @XmlElement(name = "held_items")

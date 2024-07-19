@@ -14,8 +14,12 @@ import org.springframework.ws.soap.SoapMessage;
 import com.bankaya.code.challenge.pokeapi_soap_service.dto.AbilitiesArrDTO;
 import com.bankaya.code.challenge.pokeapi_soap_service.dto.GetPokemonResponse;
 import com.bankaya.code.challenge.pokeapi_soap_service.request.GetAbilitiesRequest;
+import com.bankaya.code.challenge.pokeapi_soap_service.request.GetBaseExperienceRequest;
+import com.bankaya.code.challenge.pokeapi_soap_service.request.GetHeldItemsRequest;
 import com.bankaya.code.challenge.pokeapi_soap_service.request.GetPokemonRequest;
 import com.bankaya.code.challenge.pokeapi_soap_service.response.GetAbilitiesResponse;
+import com.bankaya.code.challenge.pokeapi_soap_service.response.GetBaseExperienceResponse;
+import com.bankaya.code.challenge.pokeapi_soap_service.response.GetHeldItemsResponse;
 import com.bankaya.code.challenge.pokeapi_soap_service.service.PokeApiService;
 
 import lombok.RequiredArgsConstructor;
@@ -48,15 +52,21 @@ public class PokemonController {
     }
 
 
-    /* @PayloadRoot(namespace = NAMESPACE_URI, localPart = "GetAbilitiesRequest")
+    @PayloadRoot(namespace = NAMESPACE_URI, localPart = "GetBaseExperienceRequest")
     @ResponsePayload
-    public GetAbilitiesResponse getBasedExperienceByName(@RequestPayload GetAbilitiesRequest request, MessageContext messageContext) {
-        List<AbilitiesArrDTO> abilities = pokeApiService.getAbilitiesFromPokemon(request.getName()).getAbilities();
-        GetAbilitiesResponse response = new GetAbilitiesResponse();
-        response.setAbilities(abilities);
+    public GetBaseExperienceResponse getBasedExperienceByName(@RequestPayload GetBaseExperienceRequest request, MessageContext messageContext) {
+        GetBaseExperienceResponse response= pokeApiService.getBaseExperienceFromPokemon(request.getName());
         responseMessageHolder.set((SoapMessage) messageContext.getResponse());
         return response;
-    } */
+    }
+
+    @PayloadRoot(namespace = NAMESPACE_URI, localPart = "GetHeldItemsRequest")
+    @ResponsePayload
+    public GetHeldItemsResponse getHeldItemsByName(@RequestPayload GetHeldItemsRequest request, MessageContext messageContext) {
+        GetHeldItemsResponse response= pokeApiService.getHeldItemsFromPokemon(request.getName());
+        responseMessageHolder.set((SoapMessage) messageContext.getResponse());
+        return response;
+    }
 
     public static SoapMessage getResponseMessage() {
         return responseMessageHolder.get();
