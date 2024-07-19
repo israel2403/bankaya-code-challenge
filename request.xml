@@ -1,5 +1,6 @@
-<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:exa="http://example.com/pokemon">
-   <soapenv:Header/>
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/"
+   xmlns:exa="http://example.com/pokemon">
+   <soapenv:Header />
    <soapenv:Body>
       <exa:GetPokemonRequest>
          <exa:name>pikachu</exa:name>

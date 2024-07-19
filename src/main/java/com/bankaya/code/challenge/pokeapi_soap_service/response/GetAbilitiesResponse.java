@@ -1,4 +1,8 @@
-package com.bankaya.code.challenge.pokeapi_soap_service.request;
+package com.bankaya.code.challenge.pokeapi_soap_service.response;
+
+import java.util.List;
+
+import com.bankaya.code.challenge.pokeapi_soap_service.dto.AbilitiesArrDTO;
 
 import jakarta.xml.bind.annotation.XmlAccessType;
 import jakarta.xml.bind.annotation.XmlAccessorType;
@@ -9,15 +13,14 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+@XmlRootElement(name = "GetAbilitiesResponse", namespace = "http://example.com/pokemon")
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlRootElement(name = "GetPokemonRequest", namespace = "http://example.com/pokemon")
 @Getter
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-public class GetPokemonRequest {
+public class GetAbilitiesResponse {
 
-    @XmlElement(required = true, namespace = "http://example.com/pokemon")
-    private String name;
-
+    @XmlElement(name = "ability", required = true)
+    private List<AbilitiesArrDTO> abilities;
 }
