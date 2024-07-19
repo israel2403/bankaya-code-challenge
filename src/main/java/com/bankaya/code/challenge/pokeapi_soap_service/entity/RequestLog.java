@@ -1,4 +1,4 @@
-package com.bankaya.code.challenge.pokeapi_soap_service.entity;
+/* package com.bankaya.code.challenge.pokeapi_soap_service.entity;
 
 import java.time.LocalDateTime;
 
@@ -20,3 +20,4 @@ public class RequestLog {
     private String response;
     private LocalDateTime timestamp;
 }
+ */
