@@ -1,6 +1,9 @@
 CREATE TABLE request_log (
     id BIGINT AUTO_INCREMENT PRIMARY KEY,
-    request VARCHAR(255),
-    response VARCHAR(255),
-    timestamp TIMESTAMP
+    ip VARCHAR(255),
+    request_date TIMESTAMP,
+    method VARCHAR(255),
+    duration BIGINT,
+    request TEXT,
+    response TEXT
 );
