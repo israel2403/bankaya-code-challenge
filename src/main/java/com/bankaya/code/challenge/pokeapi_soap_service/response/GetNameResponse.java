@@ -9,14 +9,14 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-@XmlRootElement(name = "GetIdResponse", namespace = "http://example.com/pokemon")
+@XmlRootElement(name = "GetNameResponse", namespace = "http://example.com/pokemon")
 @XmlAccessorType(XmlAccessType.FIELD)
 @Getter
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-public class GetIdResponse {
+public class GetNameResponse {
 
-    @XmlElement(name = "id", required = true)
-    private Long id;
+    @XmlElement(name = "name", required = true)
+    private String name;
 }

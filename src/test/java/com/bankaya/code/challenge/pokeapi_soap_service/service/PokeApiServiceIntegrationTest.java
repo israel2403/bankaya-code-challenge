@@ -30,7 +30,7 @@ public class PokeApiServiceIntegrationTest {
     public void testGetPokemonByName() {
         String pokemonName = "pikachu";
 
-        PokemonDTO pokemonDTO = pokeApiService.getPokemonByName(pokemonName);
+        PokemonDTO pokemonDTO = pokeApiService.getPokemonResponse(pokemonName);
 
         assertNotNull(pokemonDTO, "PokemonDTO should not be null");
         assertEquals(pokemonName, pokemonDTO.getName().toLowerCase(), "Pokemon name should match");
