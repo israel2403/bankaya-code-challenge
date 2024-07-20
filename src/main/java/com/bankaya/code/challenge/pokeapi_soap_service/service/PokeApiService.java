@@ -14,6 +14,7 @@ import com.bankaya.code.challenge.pokeapi_soap_service.dto.PokemonDTO;
 import com.bankaya.code.challenge.pokeapi_soap_service.response.GetAbilitiesResponse;
 import com.bankaya.code.challenge.pokeapi_soap_service.response.GetBaseExperienceResponse;
 import com.bankaya.code.challenge.pokeapi_soap_service.response.GetHeldItemsResponse;
+import com.bankaya.code.challenge.pokeapi_soap_service.response.GetIdResponse;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -70,6 +71,16 @@ public class PokeApiService {
         GetHeldItemsResponse response = new GetHeldItemsResponse();
         response.setHeldItems(heldItems);
         logger.info("Held Items fetched successfully for Pokémon {}: {}", name, heldItems);
+        return response;
+    }
+
+    public GetIdResponse getIdFromPokemon(String name) {
+        logger.info("Fetching id for Pokémon with name: {}", name);
+        PokemonDTO pokemonByName = this.getPokemonByName(name);
+        Long id = pokemonByName.getId();
+        GetIdResponse response = new GetIdResponse();
+        response.setId(id);
+        logger.info("id fetched successfully for Pokémon {}: {}", name, id);
         return response;
     }
 }

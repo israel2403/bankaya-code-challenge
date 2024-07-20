@@ -16,10 +16,12 @@ import com.bankaya.code.challenge.pokeapi_soap_service.dto.GetPokemonResponse;
 import com.bankaya.code.challenge.pokeapi_soap_service.request.GetAbilitiesRequest;
 import com.bankaya.code.challenge.pokeapi_soap_service.request.GetBaseExperienceRequest;
 import com.bankaya.code.challenge.pokeapi_soap_service.request.GetHeldItemsRequest;
+import com.bankaya.code.challenge.pokeapi_soap_service.request.GetIdRequest;
 import com.bankaya.code.challenge.pokeapi_soap_service.request.GetPokemonRequest;
 import com.bankaya.code.challenge.pokeapi_soap_service.response.GetAbilitiesResponse;
 import com.bankaya.code.challenge.pokeapi_soap_service.response.GetBaseExperienceResponse;
 import com.bankaya.code.challenge.pokeapi_soap_service.response.GetHeldItemsResponse;
+import com.bankaya.code.challenge.pokeapi_soap_service.response.GetIdResponse;
 import com.bankaya.code.challenge.pokeapi_soap_service.service.PokeApiService;
 
 import lombok.RequiredArgsConstructor;
@@ -64,6 +66,14 @@ public class PokemonController {
     @ResponsePayload
     public GetHeldItemsResponse getHeldItemsByName(@RequestPayload GetHeldItemsRequest request, MessageContext messageContext) {
         GetHeldItemsResponse response= pokeApiService.getHeldItemsFromPokemon(request.getName());
+        responseMessageHolder.set((SoapMessage) messageContext.getResponse());
+        return response;
+    }
+
+    @PayloadRoot(namespace = NAMESPACE_URI, localPart = "GetIdRequest")
+    @ResponsePayload
+    public GetIdResponse getIdByName(@RequestPayload GetIdRequest request, MessageContext messageContext) {
+        GetIdResponse response= pokeApiService.getIdFromPokemon(request.getName());
         responseMessageHolder.set((SoapMessage) messageContext.getResponse());
         return response;
     }
