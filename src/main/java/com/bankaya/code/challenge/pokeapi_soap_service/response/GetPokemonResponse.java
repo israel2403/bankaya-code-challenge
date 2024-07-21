@@ -1,4 +1,6 @@
-package com.bankaya.code.challenge.pokeapi_soap_service.dto;
+package com.bankaya.code.challenge.pokeapi_soap_service.response;
+
+import com.bankaya.code.challenge.pokeapi_soap_service.dto.PokemonDTO;
 
 import jakarta.xml.bind.annotation.XmlAccessType;
 import jakarta.xml.bind.annotation.XmlAccessorType;

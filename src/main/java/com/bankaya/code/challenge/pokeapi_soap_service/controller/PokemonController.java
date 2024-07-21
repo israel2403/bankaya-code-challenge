@@ -9,7 +9,6 @@ import org.springframework.ws.server.endpoint.annotation.RequestPayload;
 import org.springframework.ws.server.endpoint.annotation.ResponsePayload;
 import org.springframework.ws.soap.SoapMessage;
 
-import com.bankaya.code.challenge.pokeapi_soap_service.dto.GetPokemonResponse;
 import com.bankaya.code.challenge.pokeapi_soap_service.request.GetAbilitiesRequest;
 import com.bankaya.code.challenge.pokeapi_soap_service.request.GetBaseExperienceRequest;
 import com.bankaya.code.challenge.pokeapi_soap_service.request.GetHeldItemsRequest;
@@ -23,6 +22,7 @@ import com.bankaya.code.challenge.pokeapi_soap_service.response.GetHeldItemsResp
 import com.bankaya.code.challenge.pokeapi_soap_service.response.GetIdResponse;
 import com.bankaya.code.challenge.pokeapi_soap_service.response.GetLocationAreaEncountersResponse;
 import com.bankaya.code.challenge.pokeapi_soap_service.response.GetNameResponse;
+import com.bankaya.code.challenge.pokeapi_soap_service.response.GetPokemonResponse;
 import com.bankaya.code.challenge.pokeapi_soap_service.service.PokeApiService;
 
 import lombok.RequiredArgsConstructor;

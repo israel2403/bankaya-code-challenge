@@ -6,6 +6,7 @@ import com.bankaya.code.challenge.pokeapi_soap_service.response.GetHeldItemsResp
 import com.bankaya.code.challenge.pokeapi_soap_service.response.GetIdResponse;
 import com.bankaya.code.challenge.pokeapi_soap_service.response.GetLocationAreaEncountersResponse;
 import com.bankaya.code.challenge.pokeapi_soap_service.response.GetNameResponse;
+import com.bankaya.code.challenge.pokeapi_soap_service.response.GetPokemonResponse;
 
 import jakarta.xml.bind.annotation.XmlRegistry;
 
