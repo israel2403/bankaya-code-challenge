@@ -10,6 +10,8 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
+import lombok.ToString;
 
 /* 
 ● abilities
@@ -24,6 +26,8 @@ import lombok.NoArgsConstructor;
 @Getter
 @Builder
 @XmlRootElement(name = "PokemonDTO")
+@ToString
+@Setter
 public class PokemonDTO {
     @XmlElement(required = true)
     private Long id;

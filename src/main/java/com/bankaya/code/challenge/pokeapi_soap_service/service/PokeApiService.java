@@ -5,7 +5,8 @@ import java.util.List;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.stereotype.Component;
+import org.springframework.http.ResponseEntity;
+import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
 import com.bankaya.code.challenge.pokeapi_soap_service.dto.AbilitiesArrDTO;
@@ -23,7 +24,7 @@ import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
 @RequiredArgsConstructor
-@Component
+@Service
 public class PokeApiService {
 
     private static final Logger logger = LoggerFactory.getLogger(PokeApiService.class);
@@ -38,8 +39,10 @@ public class PokeApiService {
         try {
             // Call to external API
             log.info("Pokemon fetched successfully");
-            PokemonDTO pokemonDTO = restTemplate.getForObject(baseUrl + "/" + name, PokemonDTO.class);
-            return pokemonDTO;
+            ResponseEntity<PokemonDTO> pokemonDTOReponseEntity = restTemplate.getForEntity(baseUrl + "/" + name,
+                    PokemonDTO.class);
+            logger.info("pokemonDTO: {}", pokemonDTOReponseEntity.getBody());
+            return pokemonDTOReponseEntity.getBody();
         } catch (Exception e) {
             log.error("Error fetching Pokemon: {}", e.getMessage());
             throw new RuntimeException(e);
