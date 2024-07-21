@@ -19,6 +19,12 @@ import org.springframework.web.client.HttpClientErrorException;
 import org.springframework.web.client.RestTemplate;
 
 import com.bankaya.code.challenge.pokeapi_soap_service.dto.PokemonDTO;
+import com.bankaya.code.challenge.pokeapi_soap_service.response.GetAbilitiesResponse;
+import com.bankaya.code.challenge.pokeapi_soap_service.response.GetBaseExperienceResponse;
+import com.bankaya.code.challenge.pokeapi_soap_service.response.GetHeldItemsResponse;
+import com.bankaya.code.challenge.pokeapi_soap_service.response.GetIdResponse;
+import com.bankaya.code.challenge.pokeapi_soap_service.response.GetLocationAreaEncountersResponse;
+import com.bankaya.code.challenge.pokeapi_soap_service.response.GetNameResponse;
 import com.fasterxml.jackson.core.exc.StreamReadException;
 import com.fasterxml.jackson.databind.DatabindException;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -69,4 +75,77 @@ class PokeApiServiceTest {
 
         assertThrows(RuntimeException.class, () -> pokeApiService.getPokemonResponse(pokemonName));
     }
+
+    @Test
+    void getAbilitiesResponse_Success() {
+        String pokemonName = "pikachu";
+        ResponseEntity<PokemonDTO> responseEntity = new ResponseEntity<>(pokemonDTO, HttpStatus.OK);
+        when(restTemplate.getForEntity(anyString(), eq(PokemonDTO.class))).thenReturn(responseEntity);
+
+        GetAbilitiesResponse response = pokeApiService.getAbilitiesResponse(pokemonName);
+
+        assertNotNull(response);
+        assertEquals(pokemonDTO.getAbilities().size(), response.getAbilities().size());
+    }
+
+    @Test
+    void getBaseExperienceResponse_Success() {
+        String pokemonName = "pikachu";
+        ResponseEntity<PokemonDTO> responseEntity = new ResponseEntity<>(pokemonDTO, HttpStatus.OK);
+        when(restTemplate.getForEntity(anyString(), eq(PokemonDTO.class))).thenReturn(responseEntity);
+
+        GetBaseExperienceResponse response = pokeApiService.getBaseExperienceResponse(pokemonName);
+
+        assertNotNull(response);
+        assertEquals(pokemonDTO.getBaseExperience(), response.getBaseExperience());
+    }
+
+    @Test
+    void getHeldItemsResponse_Success() {
+        String pokemonName = "pikachu";
+        ResponseEntity<PokemonDTO> responseEntity = new ResponseEntity<>(pokemonDTO, HttpStatus.OK);
+        when(restTemplate.getForEntity(anyString(), eq(PokemonDTO.class))).thenReturn(responseEntity);
+
+        GetHeldItemsResponse response = pokeApiService.getHeldItemsResponse(pokemonName);
+
+        assertNotNull(response);
+        assertEquals(pokemonDTO.getHeldItems().size(), response.getHeldItems().size());
+    }
+
+    @Test
+    void getIdResponse_Success() {
+        String pokemonName = "pikachu";
+        ResponseEntity<PokemonDTO> responseEntity = new ResponseEntity<>(pokemonDTO, HttpStatus.OK);
+        when(restTemplate.getForEntity(anyString(), eq(PokemonDTO.class))).thenReturn(responseEntity);
+
+        GetIdResponse response = pokeApiService.getIdResponse(pokemonName);
+
+        assertNotNull(response);
+        assertEquals(pokemonDTO.getId(), response.getId());
+    }
+
+    @Test
+    void getNameResponse_Success() {
+        String pokemonName = "pikachu";
+        ResponseEntity<PokemonDTO> responseEntity = new ResponseEntity<>(pokemonDTO, HttpStatus.OK);
+        when(restTemplate.getForEntity(anyString(), eq(PokemonDTO.class))).thenReturn(responseEntity);
+
+        GetNameResponse response = pokeApiService.getNameResponse(pokemonName);
+
+        assertNotNull(response);
+        assertEquals(pokemonDTO.getName(), response.getName());
+    }
+
+    @Test
+    void getLocationAreaEncountersResponse_Success() {
+        String pokemonName = "pikachu";
+        ResponseEntity<PokemonDTO> responseEntity = new ResponseEntity<>(pokemonDTO, HttpStatus.OK);
+        when(restTemplate.getForEntity(anyString(), eq(PokemonDTO.class))).thenReturn(responseEntity);
+
+        GetLocationAreaEncountersResponse response = pokeApiService.getLocationAreaEncountersResponse(pokemonName);
+
+        assertNotNull(response);
+        assertEquals(pokemonDTO.getLocationAreaEncounters(), response.getLocationAreaEncounters());
+    }
+
 }

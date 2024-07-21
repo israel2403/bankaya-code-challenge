@@ -4,6 +4,8 @@ import java.util.List;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
+import jakarta.xml.bind.annotation.XmlAccessType;
+import jakarta.xml.bind.annotation.XmlAccessorType;
 import jakarta.xml.bind.annotation.XmlElement;
 import jakarta.xml.bind.annotation.XmlRootElement;
 import lombok.AllArgsConstructor;
@@ -11,23 +13,14 @@ import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import lombok.ToString;
 
-/* 
-● abilities
-● base_experience *
-● held_items *
-● id *
-● name *
-● location_area_encounters *
-*/
 @AllArgsConstructor
 @NoArgsConstructor
 @Getter
 @Builder
-@XmlRootElement(name = "PokemonDTO")
-@ToString
 @Setter
+@XmlRootElement(name = "PokemonDTO")
+@XmlAccessorType(XmlAccessType.FIELD)
 public class PokemonDTO {
     @XmlElement(required = true)
     private Long id;
