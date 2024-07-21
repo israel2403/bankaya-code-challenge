@@ -13,8 +13,6 @@ import jakarta.xml.bind.annotation.XmlRegistry;
 @XmlRegistry
 public class ObjectFactory {
 
-    public ObjectFactory() {}
-
     public PokemonDTO createPokemonDTO() {
         return new PokemonDTO();
     }

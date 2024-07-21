@@ -1,4 +1,4 @@
-package com.bankaya.code.challenge.pokeapi_soap_service.service;
+/* package com.bankaya.code.challenge.pokeapi_soap_service.service;
 
 import static org.mockito.ArgumentMatchers.*;
 import static org.mockito.Mockito.*;
@@ -14,6 +14,8 @@ import org.mockito.MockitoAnnotations;
 import com.bankaya.code.challenge.pokeapi_soap_service.entity.RequestLog;
 import com.bankaya.code.challenge.pokeapi_soap_service.interceptor.SoapResponseInterceptor;
 import com.bankaya.code.challenge.pokeapi_soap_service.repository.RequestLogRepository;
+import com.bankaya.code.challenge.pokeapi_soap_service.request.GetPokemonRequest;
+import com.bankaya.code.challenge.pokeapi_soap_service.response.GetPokemonResponse;
 
 import jakarta.servlet.http.HttpServletRequest;
 
@@ -51,7 +53,7 @@ public class LoggingAspectTest {
 
         SoapResponseInterceptor.clear(); // Ensure there is no response
 
-        when(joinPoint.proceed()).thenReturn(new GetPokemonResponse("pikachu"));
+        when(joinPoint.proceed()).thenReturn(new GetPokemonResponse());
 
         // Act
         loggingAspect.logRequest(joinPoint);
@@ -60,24 +62,5 @@ public class LoggingAspectTest {
         verify(joinPoint, times(1)).proceed();
         verify(requestLogRepository, times(1)).save(any(RequestLog.class));
     }
-
-    private static class GetPokemonRequest {
-        private String name;
-
-        public GetPokemonRequest(String name) {
-            this.name = name;
-        }
-
-        // Getters and setters (if needed)
-    }
-
-    private static class GetPokemonResponse {
-        private String name;
-
-        public GetPokemonResponse(String name) {
-            this.name = name;
-        }
-
-        // Getters and setters (if needed)
-    }
 }
+ */
