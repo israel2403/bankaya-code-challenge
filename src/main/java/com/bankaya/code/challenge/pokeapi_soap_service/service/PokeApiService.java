@@ -5,6 +5,7 @@ import java.util.List;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
@@ -12,6 +13,7 @@ import org.springframework.web.client.RestTemplate;
 import com.bankaya.code.challenge.pokeapi_soap_service.dto.AbilitiesArrDTO;
 import com.bankaya.code.challenge.pokeapi_soap_service.dto.HeldItemDTO;
 import com.bankaya.code.challenge.pokeapi_soap_service.dto.PokemonDTO;
+import com.bankaya.code.challenge.pokeapi_soap_service.error.ResourceNotFoundException;
 import com.bankaya.code.challenge.pokeapi_soap_service.response.GetAbilitiesResponse;
 import com.bankaya.code.challenge.pokeapi_soap_service.response.GetBaseExperienceResponse;
 import com.bankaya.code.challenge.pokeapi_soap_service.response.GetHeldItemsResponse;
@@ -42,6 +44,9 @@ public class PokeApiService {
             ResponseEntity<PokemonDTO> pokemonDTOReponseEntity = restTemplate.getForEntity(baseUrl + "/" + name,
                     PokemonDTO.class);
             logger.info("pokemonDTO: {}", pokemonDTOReponseEntity.getBody());
+            if(pokemonDTOReponseEntity.getStatusCode() == HttpStatus.NOT_FOUND){
+                throw new ResourceNotFoundException("Pokemon with name: " + name + " not found");
+            }
             return pokemonDTOReponseEntity.getBody();
         } catch (Exception e) {
             log.error("Error fetching Pokemon: {}", e.getMessage());
