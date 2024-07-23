@@ -1,10 +1,10 @@
 spring:
     application:
-        name: pokeapi-soap-service
+        name: ${SPRING_APPLICATION_NAME}
     datasource:
-        url: jdbc:mysql://34.135.186.85:3306/pokeapi
-        username: root
-        password: bankaya
+        url: ${SPRING_DATASOURCE_URL}
+        username: ${SPRING_DATASOURCE_USERNAME}
+        password: ${SPRING_DATASOURCE_PASSWORD}
         driver-class-name: com.mysql.cj.jdbc.Driver
         hikari:
             maximum-pool-size: 10
@@ -22,9 +22,13 @@ spring:
                 '[format_sql]': true
 
     flyway:
-        enabled: true
-        locations: classpath:db/migration
+        baseline-on-migrate: true
+        validate-on-migrate: true
 
     logging:
         level:
             root: info
+            org.springframework.aop: DEBUG
+
+pokeapi:
+    base-url: ${POKE_API_BASE_URL}

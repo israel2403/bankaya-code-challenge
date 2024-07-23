@@ -1,0 +1,11 @@
+PokemonDTO
+AbilitiesArrDTO
+HeldItemDTO
+AbilityDTO
+GetPokemonResponse
+GetAbilitiesResponse
+GetBaseExperienceResponse
+GetHeldItemsResponse
+GetIdResponse
+GetLocationAreaEncountersResponse
+GetNameResponse

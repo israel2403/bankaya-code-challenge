@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           xmlns:tns="http://example.com/pokemon"
+           targetNamespace="http://example.com/pokemon"
+           elementFormDefault="qualified">
+
+    <!-- Request Element -->
+    <xs:element name="GetPokemonRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="name" type="xs:string"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <!-- Response Element -->
+    <xs:element name="GetPokemonResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="pokemon" type="tns:PokemonDTO"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <!-- PokemonDTO Complex Type -->
+    <xs:complexType name="PokemonDTO">
+        <xs:sequence>
+            <xs:element name="id" type="xs:long"/>
+            <xs:element name="abilities" type="tns:AbilitiesArrDTO" minOccurs="0" maxOccurs="unbounded"/>
+            <xs:element name="base_experience" type="xs:int"/>
+            <xs:element name="held_items" type="tns:HeldItemDTO" minOccurs="0" maxOccurs="unbounded"/>
+            <xs:element name="name" type="xs:string"/>
+            <xs:element name="location_area_encounters" type="xs:string"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <!-- AbilitiesArrDTO Complex Type -->
+    <xs:complexType name="AbilitiesArrDTO">
+        <xs:sequence>
+            <xs:element name="ability" type="tns:AbilityDTO"/>
+            <xs:element name="is_hidden" type="xs:boolean"/>
+            <xs:element name="slot" type="xs:int"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <!-- AbilityDTO Complex Type -->
+    <xs:complexType name="AbilityDTO">
+        <xs:sequence>
+            <xs:element name="name" type="xs:string"/>
+            <xs:element name="url" type="xs:string"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <!-- HeldItemDTO Complex Type -->
+    <xs:complexType name="HeldItemDTO">
+        <xs:sequence>
+            <xs:element name="item" type="tns:ItemDTO"/>
+            <xs:element name="version_details" type="tns:VersionDetailsDTO" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <!-- ItemDTO Complex Type -->
+    <xs:complexType name="ItemDTO">
+        <xs:sequence>
+            <xs:element name="name" type="xs:string"/>
+            <xs:element name="url" type="xs:string"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <!-- VersionDetailsDTO Complex Type -->
+    <xs:complexType name="VersionDetailsDTO">
+        <xs:sequence>
+            <xs:element name="rarity" type="xs:int"/>
+            <xs:element name="version" type="tns:VersionDTO"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <!-- VersionDTO Complex Type -->
+    <xs:complexType name="VersionDTO">
+        <xs:sequence>
+            <xs:element name="name" type="xs:string"/>
+            <xs:element name="url" type="xs:string"/>
+        </xs:sequence>
+    </xs:complexType>
+
+</xs:schema>

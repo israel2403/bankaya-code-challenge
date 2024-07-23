@@ -1,0 +1,9 @@
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/"
+    xmlns:pok="http://example.com/pokemon">
+    <soapenv:Header />
+    <soapenv:Body>
+        <pok:GetLocationAreaEncountersRequest>
+            <pok:name>pikachu</pok:name>
+        </pok:GetLocationAreaEncountersRequest>
+    </soapenv:Body>
+</soapenv:Envelope>
