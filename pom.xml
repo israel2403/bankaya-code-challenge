@@ -151,9 +151,9 @@
 				<artifactId>flyway-maven-plugin</artifactId>
 				<version>10.1.0</version>
 				<configuration>
-					<url>jdbc:mysql://34.135.186.85:3306/pokeapi</url>
-					<user>root</user>
-					<password>bankaya</password>
+					<url>${env.SPRING_DATASOURCE_URL}</url>
+					<user>${env.SPRING_DATASOURCE_USERNAME}</user>
+					<password>${env.SPRING_DATASOURCE_PASSWORD}</password>
 					<locations>
 						<location>classpath:db/migration</location>
 					</locations>
