@@ -1,0 +1,9 @@
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/"
+    xmlns:pok="http://example.com/pokemon">
+    <soapenv:Header />
+    <soapenv:Body>
+        <pok:GetBaseExperienceRequest>
+            <pok:name>pikachu</pok:name>
+        </pok:GetBaseExperienceRequest>
+    </soapenv:Body>
+</soapenv:Envelope>

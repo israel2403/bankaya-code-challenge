@@ -1,0 +1,15 @@
+version: '3.8'
+
+services:
+  bankaya-code-challenge:
+    container_name: pokeapi-soap-service
+    build:
+      context: .
+    ports:
+      - "8080:8080"
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:mysql://${MYSQL_HOST}:${MYSQL_PORT}/${MYSQL_DATABASE}
+      SPRING_DATASOURCE_USERNAME: ${MYSQL_USER}
+      SPRING_DATASOURCE_PASSWORD: ${MYSQL_PASSWORD}
+      SPRING_APPLICATION_NAME: pokeapi-soap-service
+      POKE_API_BASE_URL: https://pokeapi.co/api/v2/pokemon

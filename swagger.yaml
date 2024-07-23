@@ -1,0 +1,211 @@
+
+openapi: 3.0.0
+info:
+  title: Bankaya Code Challenge API
+  description: API documentation for the Bankaya Code Challenge
+  version: 1.0.0
+servers:
+  - url: http://localhost:8080
+paths:
+  /pokemon:
+    post:
+      summary: Get Pokemon details
+      requestBody:
+        required: true
+        content:
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/GetPokemonRequest'
+      responses:
+        '200':
+          description: Pokemon response
+          content:
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/GetPokemonResponse'
+  /pokemon/abilities:
+    post:
+      summary: Get Pokemon abilities
+      requestBody:
+        required: true
+        content:
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/GetAbilitiesRequest'
+      responses:
+        '200':
+          description: Abilities response
+          content:
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/GetAbilitiesResponse'
+  /pokemon/baseExperience:
+    post:
+      summary: Get Pokemon base experience
+      requestBody:
+        required: true
+        content:
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/GetBaseExperienceRequest'
+      responses:
+        '200':
+          description: Base experience response
+          content:
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/GetBaseExperienceResponse'
+  /pokemon/heldItems:
+    post:
+      summary: Get Pokemon held items
+      requestBody:
+        required: true
+        content:
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/GetHeldItemsRequest'
+      responses:
+        '200':
+          description: Held items response
+          content:
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/GetHeldItemsResponse'
+  /pokemon/id:
+    post:
+      summary: Get Pokemon ID
+      requestBody:
+        required: true
+        content:
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/GetIdRequest'
+      responses:
+        '200':
+          description: ID response
+          content:
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/GetIdResponse'
+  /pokemon/name:
+    post:
+      summary: Get Pokemon name
+      requestBody:
+        required: true
+        content:
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/GetNameRequest'
+      responses:
+        '200':
+          description: Name response
+          content:
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/GetNameResponse'
+  /pokemon/locationAreaEncounters:
+    post:
+      summary: Get Pokemon location area encounters
+      requestBody:
+        required: true
+        content:
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/GetLocationAreaEncountersRequest'
+      responses:
+        '200':
+          description: Location area encounters response
+          content:
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/GetLocationAreaEncountersResponse'
+components:
+  schemas:
+    GetPokemonRequest:
+      type: object
+      properties:
+        name:
+          type: string
+    GetPokemonResponse:
+      type: object
+      properties:
+        id:
+          type: integer
+        name:
+          type: string
+        base_experience:
+          type: integer
+        abilities:
+          type: array
+          items:
+            type: string
+        held_items:
+          type: array
+          items:
+            type: string
+        location_area_encounters:
+          type: string
+    GetAbilitiesRequest:
+      type: object
+      properties:
+        name:
+          type: string
+    GetAbilitiesResponse:
+      type: object
+      properties:
+        abilities:
+          type: array
+          items:
+            type: string
+    GetBaseExperienceRequest:
+      type: object
+      properties:
+        name:
+          type: string
+    GetBaseExperienceResponse:
+      type: object
+      properties:
+        base_experience:
+          type: integer
+    GetHeldItemsRequest:
+      type: object
+      properties:
+        name:
+          type: string
+    GetHeldItemsResponse:
+      type: object
+      properties:
+        held_items:
+          type: array
+          items:
+            type: string
+    GetIdRequest:
+      type: object
+      properties:
+        name:
+          type: string
+    GetIdResponse:
+      type: object
+      properties:
+        id:
+          type: integer
+    GetNameRequest:
+      type: object
+      properties:
+        name:
+          type: string
+    GetNameResponse:
+      type: object
+      properties:
+        name:
+          type: string
+    GetLocationAreaEncountersRequest:
+      type: object
+      properties:
+        name:
+          type: string
+    GetLocationAreaEncountersResponse:
+      type: object
+      properties:
+        location_area_encounters:
+          type: string
